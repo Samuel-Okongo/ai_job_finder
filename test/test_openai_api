@@ -1,0 +1,17 @@
+import openai
+
+def test_openai_api():
+    openai.api_key = 'your-openai-api-key'  # Make sure to use your actual API key here
+
+    try:
+        response = openai.Completion.create(
+            engine="text-davinci-003",  # Check if this engine is still available or update accordingly
+            prompt="Translate 'Hello, world!' into French.",
+            max_tokens=60
+        )
+        print("API Response:", response.choices[0].text.strip())
+    except Exception as e:
+        print("An error occurred:", str(e))
+
+if __name__ == "__main__":
+    test_openai_api()
